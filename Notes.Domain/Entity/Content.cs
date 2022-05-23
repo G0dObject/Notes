@@ -4,6 +4,5 @@
     {
         public List<Image>? Images { get; set; }
         public string? Text { get; set; }
-        
     }
 }

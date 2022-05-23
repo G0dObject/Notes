@@ -4,14 +4,90 @@
     "C:\\Users\\Vladimir\\source\\repos\\Notes\\Notes.Persistent\\Notes.Persistent.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Vladimir\\source\\repos\\Notes\\Notes.Persistent\\Notes.Persistent.csproj": {
+    "C:\\Users\\Vladimir\\source\\repos\\Notes\\Notes.Application\\Notes.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Vladimir\\source\\repos\\Notes\\Notes.Persistent\\Notes.Persistent.csproj",
-        "projectName": "Notes.Persistent",
-        "projectPath": "C:\\Users\\Vladimir\\source\\repos\\Notes\\Notes.Persistent\\Notes.Persistent.csproj",
+        "projectUniqueName": "C:\\Users\\Vladimir\\source\\repos\\Notes\\Notes.Application\\Notes.Application.csproj",
+        "projectName": "Notes.Application",
+        "projectPath": "C:\\Users\\Vladimir\\source\\repos\\Notes\\Notes.Application\\Notes.Application.csproj",
         "packagesPath": "C:\\Users\\Vladimir\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Vladimir\\source\\repos\\Notes\\Notes.Persistent\\obj\\",
+        "outputPath": "C:\\Users\\Vladimir\\source\\repos\\Notes\\Notes.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Vladimir\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Vladimir\\source\\repos\\Notes\\Notes.Domain\\Notes.Domain.csproj": {
+                "projectPath": "C:\\Users\\Vladimir\\source\\repos\\Notes\\Notes.Domain\\Notes.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.5, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[6.0.1, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "Serilog.Settings.Configuration": {
+              "target": "Package",
+              "version": "[3.3.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Vladimir\\source\\repos\\Notes\\Notes.Domain\\Notes.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Vladimir\\source\\repos\\Notes\\Notes.Domain\\Notes.Domain.csproj",
+        "projectName": "Notes.Domain",
+        "projectPath": "C:\\Users\\Vladimir\\source\\repos\\Notes\\Notes.Domain\\Notes.Domain.csproj",
+        "packagesPath": "C:\\Users\\Vladimir\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Vladimir\\source\\repos\\Notes\\Notes.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Vladimir\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +115,77 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Vladimir\\source\\repos\\Notes\\Notes.Persistent\\Notes.Persistent.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Vladimir\\source\\repos\\Notes\\Notes.Persistent\\Notes.Persistent.csproj",
+        "projectName": "Notes.Persistent",
+        "projectPath": "C:\\Users\\Vladimir\\source\\repos\\Notes\\Notes.Persistent\\Notes.Persistent.csproj",
+        "packagesPath": "C:\\Users\\Vladimir\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Vladimir\\source\\repos\\Notes\\Notes.Persistent\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Vladimir\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Vladimir\\source\\repos\\Notes\\Notes.Application\\Notes.Application.csproj": {
+                "projectPath": "C:\\Users\\Vladimir\\source\\repos\\Notes\\Notes.Application\\Notes.Application.csproj"
+              },
+              "C:\\Users\\Vladimir\\source\\repos\\Notes\\Notes.Domain\\Notes.Domain.csproj": {
+                "projectPath": "C:\\Users\\Vladimir\\source\\repos\\Notes\\Notes.Domain\\Notes.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.5, )"
+            },
+            "MySql.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

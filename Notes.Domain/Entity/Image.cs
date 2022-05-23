@@ -2,7 +2,6 @@
 {
     public class Image
     {
-        public Uri Source { get; set; } = new Uri(string.Empty); 
-
+        public Uri Source { get; set; } = new Uri(string.Empty);
     }
 }
