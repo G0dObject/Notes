@@ -1,35 +1,38 @@
+using Notes.Persistence;
+using static Notes.Persistent.DependencyInjection.DbDependencyInjection;
+using static Notes.Persistent.DependencyInjection.IdentityDependency;
+
 namespace Notes.Api
 {
-    public class Program
-    {
-        public IConfiguration Configuration { get; }
+	public class Program
+	{
+		public IConfiguration Configuration { get; }
 
-        public Program(IConfiguration configuration) => Configuration = configuration;  
-        public static void Main(string[] args)
-        {
-            var builder = WebApplication.CreateBuilder(args);
+		public Program(IConfiguration configuration) => Configuration = configuration;
+		public static void Main(string[] args)
+		{
+			WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
-           // builder.Services.AddPersistence(Configuration);
+			builder.Services.AddControllers();
+			builder.Services.AddEndpointsApiExplorer();
+			builder.Services.AddSwaggerGen();
+			builder.Services.AddDbDependency(builder.Configuration);
+			builder.Services.AddIdentityDependency();
 
+			WebApplication app = builder.Build();
 
-            builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-            builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+			app.Services.CreateScope().ServiceProvider.GetRequiredService<NotesContext>();
 
-            var app = builder.Build();
+			if (app.Environment.IsDevelopment())
+			{
+				app.UseSwagger();
+				app.UseSwaggerUI();
+			}
 
-            // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
-            {
-                app.UseSwagger();
-                app.UseSwaggerUI();
-            }
-
-            app.UseHttpsRedirection();
-            app.UseAuthorization();
-            app.MapControllers();
-            app.Run();
-        }
-    }
+			app.UseHttpsRedirection();
+			app.UseAuthorization();
+			app.MapControllers();
+			app.Run();
+		}
+	}
 }

@@ -4,13 +4,12 @@ using Notes.Domain.Entity;
 
 namespace Notes.Persistence.EntityTypeConfigurations
 {
-    public class NoteConfigurations : IEntityTypeConfiguration<Note>
-    {
-        public void Configure(EntityTypeBuilder<Note> builder)
-        {
-            builder.HasKey(e => e.NoteId);
-            builder.Property(e => e.Title).IsRequired();
-            
-        }
-    }
+	public class NoteConfigurations : IEntityTypeConfiguration<Note>
+	{
+		public void Configure(EntityTypeBuilder<Note> builder)
+		{
+			builder.HasKey(e => e.Id);
+			builder.Property(e => e.Title).IsRequired();
+		}
+	}
 }

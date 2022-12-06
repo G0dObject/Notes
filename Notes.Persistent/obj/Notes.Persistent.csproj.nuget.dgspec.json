@@ -1,35 +1,40 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Vladimir\\source\\repos\\Notes\\Notes.Persistent\\Notes.Persistent.csproj": {}
+    "C:\\Users\\vladi\\OneDrive\\Документы\\DotNet\\Notes\\Notes.Persistent\\Notes.Persistent.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Vladimir\\source\\repos\\Notes\\Notes.Application\\Notes.Application.csproj": {
+    "C:\\Users\\vladi\\OneDrive\\Документы\\DotNet\\Notes\\Notes.Application\\Notes.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Vladimir\\source\\repos\\Notes\\Notes.Application\\Notes.Application.csproj",
+        "projectUniqueName": "C:\\Users\\vladi\\OneDrive\\Документы\\DotNet\\Notes\\Notes.Application\\Notes.Application.csproj",
         "projectName": "Notes.Application",
-        "projectPath": "C:\\Users\\Vladimir\\source\\repos\\Notes\\Notes.Application\\Notes.Application.csproj",
-        "packagesPath": "C:\\Users\\Vladimir\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Vladimir\\source\\repos\\Notes\\Notes.Application\\obj\\",
+        "projectPath": "C:\\Users\\vladi\\OneDrive\\Документы\\DotNet\\Notes\\Notes.Application\\Notes.Application.csproj",
+        "packagesPath": "C:\\Users\\vladi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\vladi\\OneDrive\\Документы\\DotNet\\Notes\\Notes.Application\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Vladimir\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\vladi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0"
+          "net7.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
+          "net7.0": {
+            "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\Vladimir\\source\\repos\\Notes\\Notes.Domain\\Notes.Domain.csproj": {
-                "projectPath": "C:\\Users\\Vladimir\\source\\repos\\Notes\\Notes.Domain\\Notes.Domain.csproj"
+              "C:\\Users\\vladi\\OneDrive\\Документы\\DotNet\\Notes\\Notes.Domain\\Notes.Domain.csproj": {
+                "projectPath": "C:\\Users\\vladi\\OneDrive\\Документы\\DotNet\\Notes\\Notes.Domain\\Notes.Domain.csproj"
               }
             }
           }
@@ -41,12 +46,12 @@
         }
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net7.0": {
+          "targetAlias": "net7.0",
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[6.0.5, )"
+              "version": "[7.0.0, )"
             },
             "Microsoft.Extensions.Configuration": {
               "target": "Package",
@@ -67,7 +72,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -76,33 +82,38 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Vladimir\\source\\repos\\Notes\\Notes.Domain\\Notes.Domain.csproj": {
+    "C:\\Users\\vladi\\OneDrive\\Документы\\DotNet\\Notes\\Notes.Domain\\Notes.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Vladimir\\source\\repos\\Notes\\Notes.Domain\\Notes.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\vladi\\OneDrive\\Документы\\DotNet\\Notes\\Notes.Domain\\Notes.Domain.csproj",
         "projectName": "Notes.Domain",
-        "projectPath": "C:\\Users\\Vladimir\\source\\repos\\Notes\\Notes.Domain\\Notes.Domain.csproj",
-        "packagesPath": "C:\\Users\\Vladimir\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Vladimir\\source\\repos\\Notes\\Notes.Domain\\obj\\",
+        "projectPath": "C:\\Users\\vladi\\OneDrive\\Документы\\DotNet\\Notes\\Notes.Domain\\Notes.Domain.csproj",
+        "packagesPath": "C:\\Users\\vladi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\vladi\\OneDrive\\Документы\\DotNet\\Notes\\Notes.Domain\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Vladimir\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\vladi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0"
+          "net7.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
+          "net7.0": {
+            "targetAlias": "net7.0",
             "projectReferences": {}
           }
         },
@@ -113,15 +124,22 @@
         }
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -130,39 +148,44 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Vladimir\\source\\repos\\Notes\\Notes.Persistent\\Notes.Persistent.csproj": {
+    "C:\\Users\\vladi\\OneDrive\\Документы\\DotNet\\Notes\\Notes.Persistent\\Notes.Persistent.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Vladimir\\source\\repos\\Notes\\Notes.Persistent\\Notes.Persistent.csproj",
+        "projectUniqueName": "C:\\Users\\vladi\\OneDrive\\Документы\\DotNet\\Notes\\Notes.Persistent\\Notes.Persistent.csproj",
         "projectName": "Notes.Persistent",
-        "projectPath": "C:\\Users\\Vladimir\\source\\repos\\Notes\\Notes.Persistent\\Notes.Persistent.csproj",
-        "packagesPath": "C:\\Users\\Vladimir\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Vladimir\\source\\repos\\Notes\\Notes.Persistent\\obj\\",
+        "projectPath": "C:\\Users\\vladi\\OneDrive\\Документы\\DotNet\\Notes\\Notes.Persistent\\Notes.Persistent.csproj",
+        "packagesPath": "C:\\Users\\vladi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\vladi\\OneDrive\\Документы\\DotNet\\Notes\\Notes.Persistent\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Vladimir\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\vladi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0"
+          "net7.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
+          "net7.0": {
+            "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\Vladimir\\source\\repos\\Notes\\Notes.Application\\Notes.Application.csproj": {
-                "projectPath": "C:\\Users\\Vladimir\\source\\repos\\Notes\\Notes.Application\\Notes.Application.csproj"
+              "C:\\Users\\vladi\\OneDrive\\Документы\\DotNet\\Notes\\Notes.Application\\Notes.Application.csproj": {
+                "projectPath": "C:\\Users\\vladi\\OneDrive\\Документы\\DotNet\\Notes\\Notes.Application\\Notes.Application.csproj"
               },
-              "C:\\Users\\Vladimir\\source\\repos\\Notes\\Notes.Domain\\Notes.Domain.csproj": {
-                "projectPath": "C:\\Users\\Vladimir\\source\\repos\\Notes\\Notes.Domain\\Notes.Domain.csproj"
+              "C:\\Users\\vladi\\OneDrive\\Документы\\DotNet\\Notes\\Notes.Domain\\Notes.Domain.csproj": {
+                "projectPath": "C:\\Users\\vladi\\OneDrive\\Документы\\DotNet\\Notes\\Notes.Domain\\Notes.Domain.csproj"
               }
             }
           }
@@ -174,16 +197,24 @@
         }
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net7.0": {
+          "targetAlias": "net7.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Identity": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[6.0.5, )"
+              "version": "[7.0.0, )"
             },
-            "MySql.EntityFrameworkCore": {
+            "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
-              "version": "[6.0.1, )"
+              "version": "[7.0.0, )"
             }
           },
           "imports": [
@@ -192,7 +223,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -201,7 +233,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

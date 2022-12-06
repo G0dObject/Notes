@@ -5,6 +5,5 @@ namespace Notes.Domain.Entity.Authorization
 {
 	public class Role : IdentityRole<int>, BaseEntity
 	{
-
 	}
 }

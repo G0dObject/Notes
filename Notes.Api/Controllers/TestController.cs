@@ -1,39 +1,26 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Notes.Domain.Entity;
-using Notes.Persistence;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Notes.Application.Interfaces;
+using Notes.Domain.Entity.Authorization;
 
 namespace Notes.Api.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class TestController : ControllerBase
-    {
-        string name = "Сашка";
+	[Route("api/[controller]")]
+	[ApiController]
+	public class TestController : ControllerBase
+	{
+		private readonly UserManager<User> _userManager;
+		private readonly INotesDbContext context;
+		public TestController(UserManager<User> userManager, INotesDbContext notesDb)
+		{
+			this._userManager = userManager;
+			context = notesDb;
 
-        [HttpGet()]
-        public JsonResult Get()
-        {            
-            using (NotesContext db = new())
-            {
-                Note user1 = new Note
-                {
-                    Guid = Guid.NewGuid(),
-                    NoteId = Guid.NewGuid(),
-                    UserId = Guid.NewGuid(),
-                    Title = "Даб даб даб"
-                };
-
-                db.Database.EnsureDeleted();
-                db.Database.EnsureCreated();
-                db.Add(user1);
-                db.SaveChanges();
-                return new JsonResult( user1);
-            }
-        }
-    }
+		}
+		[HttpGet]
+		public void Get()
+		{
+			_ = _userManager.CreateAsync(new User() { UserName = "gfdgdfgdfg", PasswordHash = "fdfgdfgdfgdfgff" });
+		}
+	}
 }
-
-
