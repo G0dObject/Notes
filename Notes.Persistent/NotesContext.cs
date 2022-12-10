@@ -11,7 +11,6 @@ namespace Notes.Persistence
 {
 	public class NotesContext : IdentityDbContext<User, Role, int>, INotesDbContext
 	{
-
 		public NotesContext(DbContextOptions<NotesContext> contextOptions) : base(contextOptions) { DbInitialize.Initialize(this); }
 
 		public DbSet<Note>? Notes { get; set; }

@@ -5,7 +5,7 @@ using Notes.Persistence;
 
 namespace Notes.Persistent.DependencyInjection
 {
-	public static class IdentityDependency
+	public static class IdentityInjection
 	{
 		public static IServiceCollection AddIdentityDependency(this IServiceCollection services)
 		{
@@ -14,7 +14,7 @@ namespace Notes.Persistent.DependencyInjection
 				option.User.RequireUniqueEmail = false;
 
 				option.Stores.MaxLengthForKeys = 128;
-
+				option.User.RequireUniqueEmail = true;
 				option.Password.RequireUppercase = false;
 				option.Password.RequireNonAlphanumeric = false;
 				option.Password.RequireDigit = false;
@@ -24,6 +24,8 @@ namespace Notes.Persistent.DependencyInjection
 				option.SignIn.RequireConfirmedAccount = false;
 			}).AddEntityFrameworkStores<NotesContext>().AddDefaultTokenProviders();
 
+
+			services.AddIdentityCore<User>();
 			return services;
 		}
 	}

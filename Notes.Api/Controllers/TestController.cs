@@ -1,12 +1,15 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Notes.Application.Interfaces;
 using Notes.Domain.Entity.Authorization;
+
 
 namespace Notes.Api.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]
+	[Authorize(Policy = "Something")]
 	public class TestController : ControllerBase
 	{
 		private readonly UserManager<User> _userManager;

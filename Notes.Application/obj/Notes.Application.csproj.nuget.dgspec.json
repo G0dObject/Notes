@@ -64,6 +64,10 @@
             "Serilog.Settings.Configuration": {
               "target": "Package",
               "version": "[3.3.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.15.1, )"
             }
           },
           "imports": [

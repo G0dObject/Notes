@@ -6,7 +6,6 @@ namespace Notes.Persistent
 	{
 		public static void Initialize(NotesContext context)
 		{
-			context.Database.EnsureDeleted();
 			context.Database.EnsureCreated();
 		}
 	}
