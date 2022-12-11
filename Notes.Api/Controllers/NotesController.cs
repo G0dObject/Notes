@@ -1,13 +1,14 @@
-﻿using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Notes.Api.Builders;
+using Notes.Api.Services;
 using Notes.Application.Common.Note;
 using Notes.Application.Interfaces;
 using Notes.Domain.Entity;
 using Notes.Domain.Entity.Authorization;
-using System.Security.Claims;
 
 namespace Notes.Api.Controllers
 {
@@ -20,10 +21,13 @@ namespace Notes.Api.Controllers
 		private readonly UserManager<User> _userManager;
 		private readonly INotesDbContext _context;
 
+		private IsOwner<User, Note> _isowner;
 		public NotesController(UserManager<User> userManager, INotesDbContext context)
 		{
 			_userManager = userManager;
 			_context = context;
+			_isowner = new(userManager, context);
+
 		}
 
 		[HttpGet]
@@ -44,13 +48,26 @@ namespace Notes.Api.Controllers
 				.GetNote();
 			await _context!.Notes!.AddAsync(note);
 
-			CancellationToken canToken = new CancellationToken();
-			await _context.SaveChangesAsync(canToken);
+			await _context.SaveChangesAsync(new CancellationToken());
 			return Ok();
 		}
 		[HttpPut]
-		public void EditPost()
+		public async Task EditPost(int noteid, CreateNote noteupt)
 		{
+			bool isown = await _isowner.Check(User, noteid);
+
+			Note? note = await _context!.Notes.FirstOrDefaultAsync(a => a.Id == noteid);
+			User? user = await _userManager.GetUserAsync(User);
+
+
+			note!.Text = noteupt.Text;
+			note!.Title = noteupt.Title;
+
+			_context!.Notes!.Update(note);
+			await _context!.SaveChangesAsync(new CancellationToken());
+			if (isown)
+				Console.WriteLine("Pizda");
+			;
 		}
 	}
 }
