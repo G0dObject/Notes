@@ -1,6 +1,6 @@
 ﻿namespace Notes.Domain.Base
 {
-	internal interface BaseEntity
+	public interface BaseEntity
 	{
 		public int Id { get; set; }
 	}
