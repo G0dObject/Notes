@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Notes.Api.Builders;
@@ -6,6 +7,7 @@ using Notes.Application.Common.Note;
 using Notes.Application.Interfaces;
 using Notes.Domain.Entity;
 using Notes.Domain.Entity.Authorization;
+using System.Security.Claims;
 
 namespace Notes.Api.Controllers
 {
@@ -33,7 +35,7 @@ namespace Notes.Api.Controllers
 		[HttpPost]
 		public async Task<IActionResult> AddPost([FromBody] CreateNote createNote)
 		{
-			User? user = await _userManager.FindByNameAsync(User!.Identity!.Name);
+			User? user = await _userManager.GetUserAsync(User);
 
 			Note note = new NoteBuilder()
 				.AddTitle(createNote.Title)
@@ -45,6 +47,10 @@ namespace Notes.Api.Controllers
 			CancellationToken canToken = new CancellationToken();
 			await _context.SaveChangesAsync(canToken);
 			return Ok();
+		}
+		[HttpPut]
+		public void EditPost()
+		{
 		}
 	}
 }
