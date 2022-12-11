@@ -24,6 +24,7 @@ namespace Notes.Api
 			builder.Services.AddSingleton<IJwtTokenGenerator, JwtTokenGenerator>();
 			WebApplication app = builder.Build();
 
+
 			if (app.Environment.IsDevelopment())
 			{
 				app.UseSwagger();

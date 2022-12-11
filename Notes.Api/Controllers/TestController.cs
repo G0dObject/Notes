@@ -9,6 +9,7 @@ namespace Notes.Api.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]
+	[Authorize(Policy = "Something")]
 	public class TestController : ControllerBase
 	{
 		private readonly UserManager<User> _userManager;
@@ -17,13 +18,12 @@ namespace Notes.Api.Controllers
 		{
 			this._userManager = userManager;
 			context = notesDb;
+
 		}
-		[Authorize]
 		[HttpGet]
-		public void GetSecret()
+		public void Get()
 		{
-			System.Security.Principal.IIdentity? f = User.Identity;
-			System.Security.Claims.ClaimsPrincipal c = HttpContext.User;
+			_ = _userManager.CreateAsync(new User() { UserName = "gfdgdfgdfg", PasswordHash = "fdfgdfgdfgdfgff" });
 		}
 	}
 }

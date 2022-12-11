@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Notes.Application.Common.User;
+using Notes.Application.Common;
 using Notes.Application.Interfaces.Servises;
 using Notes.Domain.Entity.Authorization;
 using System.IdentityModel.Tokens.Jwt;
@@ -15,11 +15,13 @@ namespace Notes.Api.Controllers
 	{
 		private readonly UserManager<User> _userManager;
 		private readonly IJwtTokenGenerator _jwtTokenGenerator;
+		private readonly RoleManager<Role> _roleManager;
 
-		public LoginController(UserManager<User> userManager, IJwtTokenGenerator jwtTokenGenerator)
+		public LoginController(UserManager<User> userManager, IJwtTokenGenerator jwtTokenGenerator, RoleManager<Role> roleManager)
 		{
 			_userManager = userManager;
 			_jwtTokenGenerator = jwtTokenGenerator;
+			_roleManager = roleManager;
 		}
 
 		[Route("Login")]
@@ -34,7 +36,7 @@ namespace Notes.Api.Controllers
 
 				List<Claim> authClaims = new()
 				{
-					new Claim(ClaimsIdentity.DefaultNameClaimType, user!.UserName)
+					new Claim(ClaimsIdentity.DefaultNameClaimType, user.UserName)
 				};
 
 				foreach (string? userRole in userRoles)
@@ -67,11 +69,14 @@ namespace Notes.Api.Controllers
 				UserName = model.Name,
 			};
 			IdentityResult result = await _userManager.CreateAsync(user, model.Password);
+			_userManager.AddClaimAsync(user, new Claim(ClaimTypes.Name, model.Name));
 
 			return result.Succeeded
 				? StatusCode(StatusCodes.Status201Created, "Created") :
 				StatusCode(StatusCodes.Status400BadRequest, "Create Failed");
 		}
-
+		[Authorize()]
+		[HttpGet]
+		public async Task<IActionResult> GetSecret() => Ok("Password: 12341");
 	}
 }
