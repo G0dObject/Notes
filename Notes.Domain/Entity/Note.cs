@@ -3,7 +3,7 @@ using Notes.Domain.Entity.Authorization;
 
 namespace Notes.Domain.Entity
 {
-	public class Note : BaseEntity
+	public class Note : IBaseEntityOneTo
 	{
 		public string Title { get; set; } = string.Empty;
 		public string Text { get; set; } = string.Empty;
