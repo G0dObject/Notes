@@ -3,7 +3,7 @@ using Notes.Domain.Base;
 
 namespace Notes.Domain.Entity.Authorization
 {
-	public class Role : IdentityRole<int>, BaseEntity
+	public class Role : IdentityRole<int>, IBaseEntity
 	{
 	}
 }
