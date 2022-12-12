@@ -34,7 +34,8 @@ namespace Notes.Api.Controllers
 
 				List<Claim> authClaims = new()
 				{
-					new Claim(ClaimsIdentity.DefaultNameClaimType, user!.UserName)
+					new Claim(ClaimTypes.Name, user.UserName),
+					new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
 				};
 
 				foreach (string? userRole in userRoles)
