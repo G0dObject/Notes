@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Notes.Api.Builders;
@@ -20,14 +19,12 @@ namespace Notes.Api.Controllers
 	{
 		private readonly UserManager<User> _userManager;
 		private readonly INotesDbContext _context;
-
-		private IsOwner<User, Note> _isowner;
+		private IsOwner<User, Note> _owner;
 		public NotesController(UserManager<User> userManager, INotesDbContext context)
 		{
 			_userManager = userManager;
 			_context = context;
-			_isowner = new(userManager, context);
-
+			_owner = new(userManager, context);
 		}
 
 		[HttpGet]
@@ -52,22 +49,31 @@ namespace Notes.Api.Controllers
 			return Ok();
 		}
 		[HttpPut]
-		public async Task EditPost(int noteid, CreateNote noteupt)
+		public async Task<IActionResult> EditPost(int noteid, CreateNote noteupt)
 		{
-			bool isown = await _isowner.Check(User, noteid);
+			if (!await _owner.Check(User, noteid))
+				return StatusCode(StatusCodes.Status404NotFound);
 
-			Note? note = await _context!.Notes.FirstOrDefaultAsync(a => a.Id == noteid);
+			Note? note = await _context!.Notes!.FirstOrDefaultAsync(a => a.Id == noteid);
 			User? user = await _userManager.GetUserAsync(User);
-
 
 			note!.Text = noteupt.Text;
 			note!.Title = noteupt.Title;
 
 			_context!.Notes!.Update(note);
 			await _context!.SaveChangesAsync(new CancellationToken());
-			if (isown)
-				Console.WriteLine("Pizda");
-			;
+			return StatusCode(StatusCodes.Status200OK);
+		}
+
+		[HttpDelete]
+		public async Task<IActionResult> DeletePost(int noteid)
+		{
+			if (!await _owner.Check(User, noteid))
+				return StatusCode(StatusCodes.Status404NotFound);
+
+			_context!.Notes!.Remove(await _context!.Notes!.FindAsync(noteid));
+			await _context!.SaveChangesAsync(new CancellationToken());
+			return StatusCode(StatusCodes.Status200OK);
 		}
 	}
 }
